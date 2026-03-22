@@ -73,9 +73,9 @@ browserEvents.Three.onEvent(browserEvents.KeyEvent.Pressed, function () {
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
         . 6 6 7 7 7 7 7 7 7 7 7 . . . . 
-        . 6 f f f f f f f f f 7 . . . . 
-        . 6 f f 7 f f 6 f f f 7 . . . . 
-        . 6 f 7 f f f f 6 f f 7 . . e e 
+        . 6 f f f f f f f f f 7 1 . . . 
+        . 6 f f 7 f f 6 f f f 7 . 1 . . 
+        . 6 f 7 f f f f 6 f f 7 . 1 1 e 
         . 6 7 f f f f f f 6 f 7 . e e e 
         . 6 f 7 f f f f 6 f f 7 e e e . 
         . 6 f f 7 f f 6 f f f c c e . . 
@@ -92,10 +92,10 @@ browserEvents.Three.onEvent(browserEvents.KeyEvent.Pressed, function () {
         . 6 6 7 7 7 7 7 7 7 7 7 . . . . 
         . 6 f f f f f f f f f 7 . . . . 
         . 6 f f 7 f f 6 f f f 7 . . . . 
-        . 6 f 7 f f f f 6 f f 7 . . . . 
-        . 6 7 f f f f f f 6 f 7 . . . . 
-        . 6 f 7 f f f f 6 f f 7 . . . . 
-        . 6 f f 7 f f 6 f f c c c e e e 
+        . 6 f 7 f f f f 6 f f 7 . . 1 . 
+        . 6 7 f f f f f f 6 f 7 . . . 1 
+        . 6 f 7 f f f f 6 f f 7 . . . 1 
+        . 6 f f 7 f f 6 f f c c c e e 1 
         . 6 f f f f f f f f c c c e e e 
         . 6 f f f f f f f f f 7 . . . . 
         . 6 6 6 6 6 6 6 6 7 7 7 . . . . 
@@ -111,15 +111,15 @@ browserEvents.Three.onEvent(browserEvents.KeyEvent.Pressed, function () {
         . 6 f f 7 f f 6 f f f 7 . . . . 
         . 6 f 7 f f f f 6 f f 7 . . . . 
         . 6 7 f f f f f f 6 f 7 . . . . 
-        . 6 f 7 f f f f 6 f f 7 . . . . 
-        . 6 f f 7 f f 6 f f f 7 . . . . 
-        . 6 f f f f f f f f c c . . . . 
-        . 6 f f f f f f f f c c c . . . 
-        . 6 6 6 6 6 6 6 6 7 7 c e e . . 
-        . 6 6 6 6 6 6 6 6 7 7 7 e e e . 
-        . . . . . . . . . . . . . e e . 
+        . 6 f 7 f f f f 6 f f 7 . 1 1 . 
+        . 6 f f 7 f f 6 f f f 7 . . 1 1 
+        . 6 f f f f f f f f c c . . . 1 
+        . 6 f f f f f f f f c c c . . 1 
+        . 6 6 6 6 6 6 6 6 7 7 c e e 1 1 
+        . 6 6 6 6 6 6 6 6 7 7 7 e 1 1 . 
+        . . . . . . . . . . 1 1 1 1 e . 
         `],
-    500,
+    50,
     false
     )
 })
@@ -128,7 +128,7 @@ scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.hazardLava1, function (sp
 })
 browserEvents.Two.onEvent(browserEvents.KeyEvent.Pressed, function () {
     mySprite.vx = 180
-    extraEffects.createSpreadEffectOnAnchor(mySprite, extraEffects.createSingleColorSpreadEffectData(9, ExtraEffectPresetShape.Explosion), 200)
+    extraEffects.createSpreadEffectOnAnchor(mySprite, extraEffects.createSingleColorSpreadEffectData(3, ExtraEffectPresetShape.Explosion), 200)
     extraEffects.createSpreadEffectOnAnchor(mySprite, extraEffects.createSingleColorSpreadEffectData(1, ExtraEffectPresetShape.Twinkle), 200)
 })
 browserEvents.One.onEvent(browserEvents.KeyEvent.Pressed, function () {
@@ -147,15 +147,15 @@ mySprite = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
     . . . 6 6 7 7 7 7 7 7 7 7 7 . . 
-    . . . 6 f f f f f f f f f 7 . . 
-    . . . 6 f f 7 f f 6 f f f 7 . . 
-    . . . 6 f 7 f f f f 6 f f 7 . . 
-    . . . 6 7 f f f f f f 6 f 7 . . 
-    . . . 6 f 7 f f f f 6 f f 7 . . 
-    . . . 6 f f 7 f f 6 f f f 7 . . 
-    . . . 6 f f f f f f f f f 7 . . 
-    . . . 6 f f f f f f f f f 7 . . 
-    . . . 6 6 6 6 6 6 6 6 7 7 7 . . 
+    . e . 6 f f f f f f f f f 7 . . 
+    . e e 6 f f 7 f f 6 f f f 7 . . 
+    . e e 6 f 7 f f f f 6 f f 7 . . 
+    . e e 6 7 f f f f f f 6 f 7 . . 
+    . e e 6 f 7 f f f f 6 f f 7 . . 
+    c c c c f f 7 f f 6 f f f 7 . . 
+    . c c 6 f f f f f f f f f 7 . . 
+    . c c 6 f f f f f f f f f 7 . . 
+    . c c 6 6 6 6 6 6 6 6 7 7 7 . . 
     . . . 6 6 6 6 6 6 6 6 7 7 7 . . 
     . . . . . . . . . . . . . . . . 
     `, SpriteKind.Player)
