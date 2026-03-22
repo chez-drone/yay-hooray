@@ -8,6 +8,32 @@ namespace StatusBarKind {
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     mySprite.vy = -150
 })
+browserEvents.Four.onEvent(browserEvents.KeyEvent.Pressed, function () {
+    mySprite.setImage(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . 6 6 7 7 7 7 7 7 7 7 7 . . . . 
+        . 6 f f f f f f f f f 7 . . . . 
+        . 6 f f 7 f f 6 f f f 7 . . . . 
+        . 6 f 7 f f f f 6 f f 7 . . e e 
+        . 6 7 f f f f f f 6 f 7 . e e e 
+        . 6 f 7 f f f f 6 f f 7 e e e . 
+        . 6 f f 7 f f 6 f f f c c e . . 
+        . 6 f f f f f f f f c c c . . . 
+        . 6 f f f f f f f f c c . . . . 
+        . 6 6 6 6 6 6 6 6 7 7 7 . . . . 
+        . 6 6 6 6 6 6 6 6 7 7 7 . . . . 
+        . . . . . . . . . . . . . . . . 
+        `)
+    animation.runImageAnimation(
+    mySprite,
+    assets.animation`stabby back stab`,
+    100,
+    false
+    )
+})
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile`, function (sprite, location) {
     tiles.setCurrentTilemap(tilemap`level0`)
     mySprite.setPosition(11, 68)
@@ -46,6 +72,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         ..............................
         `, mySprite, 50, 0)
 })
+// this is the sword use mechanic- use 3 key
 browserEvents.Three.onEvent(browserEvents.KeyEvent.Pressed, function () {
     mySprite.setImage(img`
         . . . . . . . . . . . . . . . . 
@@ -67,59 +94,8 @@ browserEvents.Three.onEvent(browserEvents.KeyEvent.Pressed, function () {
         `)
     animation.runImageAnimation(
     mySprite,
-    [img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . 6 6 7 7 7 7 7 7 7 7 7 . . . . 
-        . 6 f f f f f f f f f 7 1 . . . 
-        . 6 f f 7 f f 6 f f f 7 . 1 . . 
-        . 6 f 7 f f f f 6 f f 7 . 1 1 e 
-        . 6 7 f f f f f f 6 f 7 . e e e 
-        . 6 f 7 f f f f 6 f f 7 e e e . 
-        . 6 f f 7 f f 6 f f f c c e . . 
-        . 6 f f f f f f f f c c c . . . 
-        . 6 f f f f f f f f c c . . . . 
-        . 6 6 6 6 6 6 6 6 7 7 7 . . . . 
-        . 6 6 6 6 6 6 6 6 7 7 7 . . . . 
-        . . . . . . . . . . . . . . . . 
-        `,img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . 6 6 7 7 7 7 7 7 7 7 7 . . . . 
-        . 6 f f f f f f f f f 7 . . . . 
-        . 6 f f 7 f f 6 f f f 7 . . . . 
-        . 6 f 7 f f f f 6 f f 7 . . 1 . 
-        . 6 7 f f f f f f 6 f 7 . . . 1 
-        . 6 f 7 f f f f 6 f f 7 . . . 1 
-        . 6 f f 7 f f 6 f f c c c e e 1 
-        . 6 f f f f f f f f c c c e e e 
-        . 6 f f f f f f f f f 7 . . . . 
-        . 6 6 6 6 6 6 6 6 7 7 7 . . . . 
-        . 6 6 6 6 6 6 6 6 7 7 7 . . . . 
-        . . . . . . . . . . . . . . . . 
-        `,img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . 6 6 7 7 7 7 7 7 7 7 7 . . . . 
-        . 6 f f f f f f f f f 7 . . . . 
-        . 6 f f 7 f f 6 f f f 7 . . . . 
-        . 6 f 7 f f f f 6 f f 7 . . . . 
-        . 6 7 f f f f f f 6 f 7 . . . . 
-        . 6 f 7 f f f f 6 f f 7 . 1 1 . 
-        . 6 f f 7 f f 6 f f f 7 . . 1 1 
-        . 6 f f f f f f f f c c . . . 1 
-        . 6 f f f f f f f f c c c . . 1 
-        . 6 6 6 6 6 6 6 6 7 7 c e e 1 1 
-        . 6 6 6 6 6 6 6 6 7 7 7 e 1 1 . 
-        . . . . . . . . . . 1 1 1 1 e . 
-        `],
-    50,
+    assets.animation`WHOA slice`,
+    100,
     false
     )
 })
@@ -285,6 +261,19 @@ scene.setBackgroundImage(img`
     2222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222
     2222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222
     `)
+game.onUpdate(function () {
+    if ((mySprite.isHittingTile(CollisionDirection.Left) || mySprite.isHittingTile(CollisionDirection.Right)) && mySprite.vy > 0) {
+        mySprite.vy = 20
+        if (controller.up.isPressed() && controller.up.isPressed() && mySprite.isHittingTile(CollisionDirection.Left)) {
+            mySprite.vx = -20
+            mySprite.vy = -20
+        }
+        if (controller.up.isPressed() && controller.up.isPressed() && mySprite.isHittingTile(CollisionDirection.Right)) {
+            mySprite.vx = 20
+            mySprite.vy = -20
+        }
+    }
+})
 game.onUpdate(function () {
     if (controller.right.isPressed() && !(controller.left.isPressed())) {
         mySprite.fx = 0
